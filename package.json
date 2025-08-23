@@ -4,11 +4,13 @@
   "scripts": {
     "build": "nitro build",
     "dev": "nitro dev",
-    "format": "prettier --write '*.ts' 'server/**/*.ts'"
+    "format": "prettier --write '*.ts' 'server/**/*.ts'",
+    "lint": "oxlint . --fix -D correctness --ignore-path .gitignore"
   },
   "devDependencies": {
     "h3": "^1.15.4",
     "nitropack": "^2.12.4",
+    "oxlint": "^1.12.0",
     "prettier": "^3.6.2"
   }
 }
