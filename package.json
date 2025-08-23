@@ -1,12 +1,14 @@
 {
-  "name": "nitro-app",
+  "name": "nitrogen",
   "private": true,
   "scripts": {
     "build": "nitro build",
-    "dev": "nitro dev"
+    "dev": "nitro dev",
+    "format": "prettier --write '*.ts' 'server/**/*.ts'"
   },
   "devDependencies": {
     "h3": "^1.15.4",
-    "nitropack": "^2.12.4"
+    "nitropack": "^2.12.4",
+    "prettier": "^3.6.2"
   }
 }
