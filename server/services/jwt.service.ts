@@ -9,6 +9,7 @@ import type {
 import { v7 as uuidv7 } from 'uuid';
 import { JWTRepository } from '../repositories/jwt.repository';
 
+import consola from 'consola';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 
@@ -74,13 +75,14 @@ class JWTService implements IJWTService {
     this.#keyPairs = await this.#jwtRepository.readKeyPairs();
 
     if (this.#keyPairs.size === 0) {
-      console.warn('No keys found, generating new one...');
+      consola.warn('No keys found, generating new one...');
       await this._generateNewKeyPair();
-      console.warn('Current key ID set to:', this.#currentKeyId);
+      consola.success('New key pair generated successfully');
+      consola.info('Current key ID set to:', this.#currentKeyId);
     } else {
       const keyIds = Array.from(this.#keyPairs.keys()).sort();
       this.#currentKeyId = keyIds[keyIds.length - 1];
-      console.warn('Current key ID set to:', this.#currentKeyId);
+      consola.info('Current key ID set to:', this.#currentKeyId);
     }
   }
 
