@@ -1,5 +1,5 @@
 import { defineConfig } from 'drizzle-kit';
-import { poolConfig } from './server/config/database';
+import { poolConfig } from '~/config/database';
 
 export default defineConfig({
   dialect: 'postgresql',

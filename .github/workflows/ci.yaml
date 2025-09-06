@@ -2,16 +2,9 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
-      - release
-      - develop
-
+    branches: [main]
   pull_request:
-    branches:
-      - main
-      - release
-      - develop
+    branches: [main]
 
 jobs:
   build:
@@ -19,33 +12,28 @@ jobs:
 
     strategy:
       matrix:
-        bun-version: [latest]
+        node-version: [lts/*]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+      - name: Setup pnpm (from package.json)
+        uses: pnpm/action-setup@v3
         with:
-          bun-version: ${{ matrix.bun-version }}
+          run_install: false
 
-      - name: Cache Bun dependencies
-        uses: actions/cache@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          path: ~/.bun/install/cache
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
-      - name: Installing dependencies
-        run: bun install
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: Formatting files
-        run: bun run format
+      - name: Check Lint
+        run: pnpm lint
 
-      - name: Linting files
-        run: bun run lint
-
-      - name: Building application
-        run: bun run build
+      - name: Build Nitro
+        run: pnpm build

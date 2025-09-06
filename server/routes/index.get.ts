@@ -1,6 +1,6 @@
-import { defineEventHandler } from 'h3';
+import { eventHandler } from 'h3';
 
-export default defineEventHandler(() => {
+export default eventHandler(() => {
   return `
       <meta charset="utf-8">
       <h1>This is your brand new Nitro project 🚀 </h1>

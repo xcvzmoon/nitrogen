@@ -1,6 +1,5 @@
-import { Pool } from 'pg';
-
 import * as z from 'zod';
+import 'dotenv/config';
 
 const poolConfigSchema = z.object({
   host: z.string(),
@@ -19,5 +18,3 @@ export const poolConfig = poolConfigSchema.parse({
   password: process.env.DB_PASSWORD,
   ssl: process.env.DB_SSL === 'true' || false,
 });
-
-export const pool = new Pool(poolConfig);
