@@ -16,7 +16,7 @@ export default defineEventHandler(async () => {
     throw createError({
       statusCode: 503,
       statusMessage: 'Service Unavailable',
-      message: (error as Error).message,
+      message: 'Database connection failed',
     });
   }
 });
