@@ -3,7 +3,7 @@
 **Quick Start:**
 
 ```sh
-pnpm dlx gitget xcvzmoon/nitrogen
+pnpx gitget xcvzmoon/nitrogen
 ```
 
 ---
