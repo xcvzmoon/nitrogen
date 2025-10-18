@@ -4,7 +4,7 @@
   "scripts": {
     "build": "nitro build",
     "dev": "nitro dev",
-    "format": "prettier --write *.ts server/**/*.ts",
+    "format": "prettier . --write --ignore-path .prettierignore",
     "lint": "oxlint . --fix -D correctness --ignore-path .gitignore",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
@@ -13,6 +13,7 @@
     "db:check": "drizzle-kit check"
   },
   "devDependencies": {
+    "@prettier/plugin-oxc": "^0.0.4",
     "@types/pg": "^8.15.5",
     "drizzle-kit": "^0.31.5",
     "h3": "^1.15.4",
