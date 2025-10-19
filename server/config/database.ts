@@ -1,5 +1,4 @@
 import * as z from 'zod';
-import 'dotenv/config';
 
 const poolConfigSchema = z.object({
   host: z.string(),
@@ -16,5 +15,5 @@ export const poolConfig = poolConfigSchema.parse({
   database: process.env.DB_DATABASE,
   user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
-  ssl: process.env.DB_SSL === 'true' || false,
+  ssl: process.env.DB_SSL === 'true',
 });
