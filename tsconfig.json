@@ -1,11 +1,11 @@
 {
-  // https://nitro.build/guide/typescript
-  // "extends": "./.nitro/types/tsconfig.json",
   "compilerOptions": {
     // Module resolution
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
+
+    // JSX
     "jsx": "preserve",
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
@@ -22,15 +22,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "useUnknownInCatchVariables": true,
-    "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-
-    // Libs & paths
-    "lib": ["ESNext", "DOM"],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"],
-      "~/*": ["./server/*"]
-    }
+    "noUnusedLocals": true
   }
 }
