@@ -1,7 +1,7 @@
-import { createError, defineEventHandler } from 'h3';
-import { db } from '~/database';
+import { createError, eventHandler } from 'h3';
+import { db } from '../../database';
 
-export default defineEventHandler(async () => {
+export default eventHandler(async () => {
   try {
     await db.execute(`SELECT 1`);
 

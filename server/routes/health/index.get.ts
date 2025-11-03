@@ -1,6 +1,6 @@
-import { defineEventHandler } from 'h3';
+import { eventHandler } from 'h3';
 
-export default defineEventHandler(() => {
+export default eventHandler(() => {
   function getUptime() {
     const seconds = process.uptime();
     const days = Math.floor(seconds / 86400);
